@@ -1,45 +1,21 @@
-# Aviatrix FireNet Vendor Integration Terraform module
+# Aviatrix Public Subnet Filtering (PSF) Terraform module
 
 Terraform module for Aviatrix which configures FireNet Vendor Integration
 
 ## Module usage
 
 ```hcl
-module "vendor_integration" {
-  source  = "bayupw/firenet-vendor-integration/aviatrix"
+module "ingress_psf_gw" {
+  source  = "bayupw/psf-gw/aviatrix"
   version = "1.0.0"
 
-  transit_firenet_vpc_id  = aviatrix_firewall_instance.fw_instance.vpc_id
-  fw_instance_id          = aviatrix_firewall_instance.fw_instance.instance_id
-  fw_name                 = aviatrix_firewall_instance.fw_instance.firewall_name
-  fw_instance_vendor_type = "Palo Alto Networks VM-Series"
-  fw_login_username       = "avxadmin"
-  fw_instance_public_ip   = aviatrix_firewall_instance.fw_instance.public_ip
-}
-```
-
-## Example usage with time_sleep delay before calling vendor integration
-
-```hcl
-# wait for after firewall instance is launched, before running vendor integration
-resource "time_sleep" "wait_fw_instance" {
-  create_duration = "600s"
-  depends_on      = [aviatrix_firewall_instance.fw_instance]
-}
-
-module "vendor_integration" {
-  source  = "bayupw/firenet-vendor-integration/aviatrix"
-  version = "1.0.0"
-
-  transit_firenet_vpc_id  = aviatrix_firewall_instance.fw_instance.vpc_id
-  fw_instance_id          = aviatrix_firewall_instance.fw_instance.instance_id
-  fw_name                 = aviatrix_firewall_instance.fw_instance.firewall_name
-  fw_instance_vendor_type = "Palo Alto Networks VM-Series"
-  fw_login_username       = "avxadmin"
-  fw_instance_public_ip   = aviatrix_firewall_instance.fw_instance.public_ip
-
-  # wait for firewall instance to be launched before calling vendor integration
-  depends_on              = [time_sleep.wait_fw_instance]
+  gw_name = "ingress-psf"
+  account = "aws-account"
+  region = "ap-southeast-2"
+  vpc_id = "vpc-0a1b2c3d4e"
+  instance_size = "t2.micro"
+  route_table_ids = ["rtb-0a1b2c3d4e"]
+  ha_gw = false
 }
 ```
 
