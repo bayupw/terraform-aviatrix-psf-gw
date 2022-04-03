@@ -1,6 +1,6 @@
 # Aviatrix Public Subnet Filtering (PSF) Terraform module
 
-Terraform module for Aviatrix which configures FireNet Vendor Integration
+Terraform module for Aviatrix which deploys Aviatrix PSF Gateway on an existing VPC
 
 ## Module usage
 
