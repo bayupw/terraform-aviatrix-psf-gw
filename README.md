@@ -84,7 +84,7 @@ module "spoke_aws_1" {
   name            = "Spoke1"
   cidr            = "10.0.0.0/16"
   region          = "ap-southeast-2"
-  account         = "aws-Account"
+  account         = "aws-account"
   transit_gw      = "avx-ap-southeast-2-transit"
 }
 
