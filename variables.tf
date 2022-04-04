@@ -14,9 +14,8 @@ variable "vpc_id" {
 }
 
 variable "cidr" {
-  description = "The CIDR range to be used for the VPC"
+  description = "The VPC CIDR of the VPC where PSF gateway will be deployed"
   type        = string
-  default     = ""
 }
 
 variable "account" {
