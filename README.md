@@ -109,7 +109,10 @@ module "psf_gw_1" {
   ha_route_table_ids = [data.aws_route_table.spoke_aws_1_pub_rtb2.route_table_id]
 }
 ```
+## Contributing
+
+Report issues/questions/feature requests on in the [issues](https://github.com/bayupw/terraform-aviatrix-psf-gw/issues/new) section.
 
 ## License
 
-Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aviatrix-psf-gw/tree/master/LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/bayupw/terraform-aviatrix-psf-gw/tree/master/LICENSE) for full details.
