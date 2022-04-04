@@ -7,7 +7,7 @@ Terraform module to deploy Aviatrix PSF Gateway
 ```hcl
 module "ingress_psf_gw" {
   source  = "bayupw/psf-gw/aviatrix"
-  version = "1.0.2"
+  version = "1.0.1"
 
   gw_name            = "ingress-psf"
   account            = "aws-account"
@@ -24,7 +24,7 @@ module "ingress_psf_gw" {
 ```hcl
 module "ingress_psf_gw" {
   source  = "bayupw/psf-gw/aviatrix"
-  version = "1.0.2"
+  version = "1.0.1"
 
   gw_name            = "ingress-psf"
   account            = "aws-account"
@@ -61,7 +61,7 @@ data "aws_route_table" "protected_vpc_pub_rtb2" {
 
 module "protected_psf_gw" {
   source  = "bayupw/psf-gw/aviatrix"
-  version = "1.0.2"
+  version = "1.0.1"
 
   gw_name            = "psf"
   account_name       = "aws-account"
@@ -98,7 +98,7 @@ data "aws_route_table" "spoke_aws_1_pub_rtb2" {
 
 module "psf_gw_1" {
   source  = "bayupw/psf-gw/aviatrix"
-  version = "1.0.2"
+  version = "1.0.1"
 
   gw_name            = "psf"
   account_name       = "aws-account"
