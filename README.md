@@ -41,7 +41,7 @@ module "ingress_psf_gw" {
 ```hcl
 resource "aviatrix_vpc" "protected_vpc" {
   cloud_type           = 1
-  account_name         = "aws-account"
+  account              = "aws-account"
   region               = "ap-southeast-2"
   name                 = "protected-vpc"
   cidr                 = "10.0.0.0/16"
@@ -64,7 +64,7 @@ module "protected_psf_gw" {
   version = "1.0.1"
 
   gw_name            = "psf"
-  account_name       = "aws-account"
+  account            = "aws-account"
   region             = "ap-southeast-2"
   cidr               = aviatrix_vpc.protected_vpc.cidr
   vpc_id             = aviatrix_vpc.protected_vpc.vpc_id
@@ -101,7 +101,7 @@ module "psf_gw_1" {
   version = "1.0.1"
 
   gw_name            = "psf"
-  account_name       = "aws-account"
+  account            = "aws-account"
   region             = "ap-southeast-2"
   cidr               = module.spoke_aws_1.vpc.cidr
   vpc_id             = module.spoke_aws_1.vpc.vpc_id
